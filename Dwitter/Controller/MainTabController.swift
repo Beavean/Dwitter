@@ -11,15 +11,36 @@ class MainTabController: UITabBarController {
 
     //MARK: - Properties
     
+    private lazy var actionButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.tintColor = .white
+        button.backgroundColor = .mainBlue
+        button.setImage(UIImage(systemName: "text.badge.plus"), for: .normal)
+        button.addTarget(self, action: #selector(actionButtonTapped), for: .touchUpInside)
+        return button
+    }()
     
     //MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewControllers()
+        configureUI()
+    }
+    
+    //MARK: - Selectors
+    
+    @objc func actionButtonTapped() {
+        
     }
     
     //MARK: - Helpers
+    
+    func configureUI() {
+        view.addSubview(actionButton)
+        actionButton.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, paddingBottom: 64, paddingRight: 16, width: 56, height: 56)
+        actionButton.layer.cornerRadius = 56 / 2 
+    }
     
     func configureViewControllers() {
         let feedNavigation = templateNavigationController(image: UIImage(systemName: "house"), rootViewController: FeedController())
@@ -35,5 +56,4 @@ class MainTabController: UITabBarController {
         navigation.navigationBar.barTintColor = .white
         return navigation
     }
-
 }

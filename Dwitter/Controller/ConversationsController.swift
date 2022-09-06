@@ -1,5 +1,5 @@
 //
-//  NotificationsController.swift
+//  ConversationsController.swift
 //  Dwitter
 //
 //  Created by Beavean on 05.09.2022.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NotificationsController: UIViewController {
+class ConversationsController: UIViewController {
     //MARK: - Properties
     
     
@@ -22,6 +22,6 @@ class NotificationsController: UIViewController {
     
     func configureUI() {
         view.backgroundColor = .white
-        navigationItem.title = "Notifications"
+        navigationItem.title = "Messages"
     }
 }
