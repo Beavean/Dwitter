@@ -19,6 +19,9 @@
 		08B70BAE28C5F22B00B01202 /* ConversationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B70BAD28C5F22B00B01202 /* ConversationsController.swift */; };
 		08B70BD428C73FED00B01202 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B70BD328C73FED00B01202 /* Extensions.swift */; };
 		08B70BD728C74D0800B01202 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B70BD628C74D0800B01202 /* LoginController.swift */; };
+		08B70BDB28C757B700B01202 /* InputContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B70BDA28C757B700B01202 /* InputContainerView.swift */; };
+		08B70BDD28C7582800B01202 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B70BDC28C7582800B01202 /* CustomTextField.swift */; };
+		08B70BDF28C75A5700B01202 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B70BDE28C75A5700B01202 /* Utilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,9 @@
 		08B70BAD28C5F22B00B01202 /* ConversationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsController.swift; sourceTree = "<group>"; };
 		08B70BD328C73FED00B01202 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		08B70BD628C74D0800B01202 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		08B70BDA28C757B700B01202 /* InputContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputContainerView.swift; sourceTree = "<group>"; };
+		08B70BDC28C7582800B01202 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		08B70BDE28C75A5700B01202 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				08B70BD328C73FED00B01202 /* Extensions.swift */,
+				08B70BDE28C75A5700B01202 /* Utilities.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -122,6 +129,8 @@
 		08B70BA328C5F04D00B01202 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				08B70BDA28C757B700B01202 /* InputContainerView.swift */,
+				08B70BDC28C7582800B01202 /* CustomTextField.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -213,14 +222,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				08B70BAC28C5F20C00B01202 /* NotificationsController.swift in Sources */,
+				08B70BDD28C7582800B01202 /* CustomTextField.swift in Sources */,
 				08B70BAE28C5F22B00B01202 /* ConversationsController.swift in Sources */,
 				08B70B8B28C5EF7E00B01202 /* AppDelegate.swift in Sources */,
 				08B70BD428C73FED00B01202 /* Extensions.swift in Sources */,
 				08B70BD728C74D0800B01202 /* LoginController.swift in Sources */,
+				08B70BDF28C75A5700B01202 /* Utilities.swift in Sources */,
 				08B70BAA28C5F1FC00B01202 /* ExploreController.swift in Sources */,
 				08B70B8D28C5EF7E00B01202 /* SceneDelegate.swift in Sources */,
 				08B70BA628C5F0ED00B01202 /* MainTabController.swift in Sources */,
 				08B70BA828C5F1B900B01202 /* FeedController.swift in Sources */,
+				08B70BDB28C757B700B01202 /* InputContainerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
