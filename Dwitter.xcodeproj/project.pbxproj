@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08AFF1D728C8B2BB00E5D3C9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AFF1D628C8B2BB00E5D3C9 /* Constants.swift */; };
+		08AFF1D928C8B73800E5D3C9 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AFF1D828C8B73800E5D3C9 /* AuthenticationService.swift */; };
 		08B70B8B28C5EF7E00B01202 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B70B8A28C5EF7E00B01202 /* AppDelegate.swift */; };
 		08B70B8D28C5EF7E00B01202 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B70B8C28C5EF7E00B01202 /* SceneDelegate.swift */; };
 		08B70B9228C5EF7E00B01202 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08B70B9028C5EF7E00B01202 /* Main.storyboard */; };
@@ -23,10 +25,13 @@
 		08B70BDD28C7582800B01202 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B70BDC28C7582800B01202 /* CustomTextField.swift */; };
 		08B70BDF28C75A5700B01202 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B70BDE28C75A5700B01202 /* Utilities.swift */; };
 		08B70BE628C88B6900B01202 /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B70BE528C88B6900B01202 /* RegistrationController.swift */; };
+		08B70BE828C89FE800B01202 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 08B70BE728C89FE800B01202 /* GoogleService-Info.plist */; };
 		342E94FC7AC0CE8784136876 /* Pods_Dwitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25C860649E9DDEEC041A4E2 /* Pods_Dwitter.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		08AFF1D628C8B2BB00E5D3C9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		08AFF1D828C8B73800E5D3C9 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		08B70B8728C5EF7E00B01202 /* Dwitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dwitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08B70B8A28C5EF7E00B01202 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		08B70B8C28C5EF7E00B01202 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +50,7 @@
 		08B70BDC28C7582800B01202 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		08B70BDE28C75A5700B01202 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		08B70BE528C88B6900B01202 /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
+		08B70BE728C89FE800B01202 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4266F5BA42CAD04DF2B700A9 /* Pods-Dwitter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dwitter.release.xcconfig"; path = "Target Support Files/Pods-Dwitter/Pods-Dwitter.release.xcconfig"; sourceTree = "<group>"; };
 		AEC90B2E376B42429CF88B9F /* Pods-Dwitter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dwitter.debug.xcconfig"; path = "Target Support Files/Pods-Dwitter/Pods-Dwitter.debug.xcconfig"; sourceTree = "<group>"; };
 		B25C860649E9DDEEC041A4E2 /* Pods_Dwitter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dwitter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +101,7 @@
 				08B70B9328C5EF8000B01202 /* Assets.xcassets */,
 				08B70B9528C5EF8000B01202 /* LaunchScreen.storyboard */,
 				08B70B9828C5EF8000B01202 /* Info.plist */,
+				08B70BE728C89FE800B01202 /* GoogleService-Info.plist */,
 			);
 			path = Dwitter;
 			sourceTree = "<group>";
@@ -104,6 +111,7 @@
 			children = (
 				08B70BD328C73FED00B01202 /* Extensions.swift */,
 				08B70BDE28C75A5700B01202 /* Utilities.swift */,
+				08AFF1D628C8B2BB00E5D3C9 /* Constants.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -111,6 +119,7 @@
 		08B70BA028C5F03700B01202 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				08AFF1D828C8B73800E5D3C9 /* AuthenticationService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -166,7 +175,6 @@
 				AEC90B2E376B42429CF88B9F /* Pods-Dwitter.debug.xcconfig */,
 				4266F5BA42CAD04DF2B700A9 /* Pods-Dwitter.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -239,6 +247,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				08B70B9728C5EF8000B01202 /* LaunchScreen.storyboard in Resources */,
+				08B70BE828C89FE800B01202 /* GoogleService-Info.plist in Resources */,
 				08B70B9428C5EF8000B01202 /* Assets.xcassets in Resources */,
 				08B70B9228C5EF7E00B01202 /* Main.storyboard in Resources */,
 			);
@@ -302,8 +311,10 @@
 				08B70BDF28C75A5700B01202 /* Utilities.swift in Sources */,
 				08B70BAA28C5F1FC00B01202 /* ExploreController.swift in Sources */,
 				08B70B8D28C5EF7E00B01202 /* SceneDelegate.swift in Sources */,
+				08AFF1D928C8B73800E5D3C9 /* AuthenticationService.swift in Sources */,
 				08B70BA628C5F0ED00B01202 /* MainTabController.swift in Sources */,
 				08B70BA828C5F1B900B01202 /* FeedController.swift in Sources */,
+				08AFF1D728C8B2BB00E5D3C9 /* Constants.swift in Sources */,
 				08B70BDB28C757B700B01202 /* InputContainerView.swift in Sources */,
 				08B70BE628C88B6900B01202 /* RegistrationController.swift in Sources */,
 			);

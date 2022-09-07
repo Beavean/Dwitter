@@ -58,7 +58,7 @@ class LoginController: UIViewController {
         button.addTarget(self, action: #selector(handleShowSignUp), for: .touchUpInside)
         return button
     }()
-
+    
     //MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -74,7 +74,17 @@ class LoginController: UIViewController {
     }
     
     @objc func handleLogin() {
-        
+        guard let email = emailTextField.text, let password = passwordTextField.text else { return }
+        AuthenticationService.shared.logUserIn(withEmail: email, password: password) { result, error in
+            if let error = error {
+                print("DEBUG: Error logging in: \(error.localizedDescription)")
+                return
+            }
+            guard let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) else { return }
+            guard let tab = window.rootViewController as? MainTabController else { return }
+            tab.authenticateUserAndConfigureUI()
+            self.dismiss(animated: true)
+        }
     }
     
     //MARK: - Helpers

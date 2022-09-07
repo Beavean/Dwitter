@@ -23,7 +23,7 @@ class FeedController: UIViewController {
     func configureUI() {
         view.backgroundColor = .white
         let imageView = UIImageView(image: UIImage(systemName: "line.3.horizontal.decrease.circle.fill"))
-        imageView.tintColor = .white
+        imageView.tintColor = .mainBlue
         imageView.contentMode = .scaleAspectFit
         imageView.setDimensions(height: 50, width: 50)
         navigationItem.titleView = imageView

@@ -6,19 +6,21 @@
 //
 
 import UIKit
+import Firebase
 
 class RegistrationController: UIViewController {
     //MARK: - Properties
     
     private let imagePicker = UIImagePickerController()
+    private var profileImage: UIImage?
     
     private lazy var plusPhotoButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Add photo", for: .normal)
         button.tintColor = .white
         button.imageView?.contentMode = .scaleAspectFill
-        button.setDimensions(height: 150, width: 150)
-        button.layer.cornerRadius = 150 / 2
+        button.setDimensions(height: 120, width: 120)
+        button.layer.cornerRadius = 120 / 2
         button.layer.masksToBounds = true
         button.imageView?.clipsToBounds = true
         button.layer.borderColor = UIColor.white.cgColor
@@ -98,13 +100,28 @@ class RegistrationController: UIViewController {
     @objc func handleAddProfilePhoto() {
         present(imagePicker, animated: true)
     }
-        
+    
     @objc func handleShowLogin() {
         navigationController?.popViewController(animated: true)
     }
     
     @objc func handleRegistration() {
-        
+        guard let profileImage = profileImage else {
+            print("DEBUG: Select profile image.")
+            return
+        }
+        guard let email = emailTextField.text,
+              let password = passwordTextField.text,
+              let fullName = fullNameTextField.text,
+              let username = usernameTextField.text
+        else { return }
+        let credentials = AuthenticationCredentials(email: email, password: password, fullName: fullName, username: username, profileImage: profileImage)
+        AuthenticationService.shared.registerUser(credentials: credentials) { error, reference in
+            guard let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) else { return }
+            guard let tab = window.rootViewController as? MainTabController else { return }
+            tab.authenticateUserAndConfigureUI()
+            self.dismiss(animated: true)
+        }
     }
     
     //MARK: - Helpers
@@ -137,6 +154,7 @@ extension RegistrationController: UIImagePickerControllerDelegate, UINavigationC
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let profileImage = info[.editedImage] as? UIImage else { return }
         self.plusPhotoButton.setImage(profileImage.withRenderingMode(.alwaysOriginal), for: .normal)
+        self.profileImage = profileImage
         dismiss(animated: true)
     }
 }
