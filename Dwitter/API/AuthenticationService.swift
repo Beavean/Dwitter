@@ -40,12 +40,12 @@ struct AuthenticationService {
                         print("DEBUG: \(error.localizedDescription)")
                         return
                     }
-                    guard let userId = result?.user.uid else { return }
+                    guard let userID = result?.user.uid else { return }
                     let values = ["email": email,
                                   "username": username,
                                   "fullname": fullName,
                                   "profileImageUrl": profileImageUrl]
-                    Constants.referenceUsers.child(userId).updateChildValues(values, withCompletionBlock: completion)
+                    Constants.referenceUsers.child(userID).updateChildValues(values, withCompletionBlock: completion)
                 }
             }
         }
