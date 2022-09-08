@@ -20,4 +20,15 @@ struct TweetService {
                       "caption": caption] as [String: Any]
         Constants.tweetsReference.childByAutoId().updateChildValues(values, withCompletionBlock: completion)
     }
+    
+    func fetchTweets(completion: @escaping([Tweet]) -> Void) {
+        var tweets = [Tweet]()
+        Constants.tweetsReference.observe(.childAdded) { snapshot in
+            guard let dictionary = snapshot.value as? [String: Any] else { return }
+            let tweetID = snapshot.key
+            let tweet = Tweet(tweetID: tweetID, dictionary: dictionary)
+            tweets.append(tweet)
+            completion(tweets)
+        }
+    }
 }

@@ -24,7 +24,7 @@ class MainTabController: UITabBarController {
         let button = UIButton(type: .system)
         button.tintColor = .white
         button.backgroundColor = .mainBlue
-        button.setImage(UIImage(systemName: "text.badge.plus"), for: .normal)
+        button.setImage(UIImage(systemName: "plus"), for: .normal)
         button.addTarget(self, action: #selector(actionButtonTapped), for: .touchUpInside)
         return button
     }()
@@ -86,7 +86,7 @@ class MainTabController: UITabBarController {
     }
     
     func configureViewControllers() {
-        let feedNavigation = templateNavigationController(image: UIImage(systemName: "house"), rootViewController: FeedController())
+        let feedNavigation = templateNavigationController(image: UIImage(systemName: "house"), rootViewController: FeedController(collectionViewLayout: UICollectionViewFlowLayout()))
         let exploreNavigation = templateNavigationController(image: UIImage(systemName: "magnifyingglass"), rootViewController: ExploreController())
         let notificationsNavigation = templateNavigationController(image: UIImage(systemName: "bell"), rootViewController: NotificationsController())
         let conversationsNavigation = templateNavigationController(image: UIImage(systemName: "envelope"), rootViewController: ConversationsController())
