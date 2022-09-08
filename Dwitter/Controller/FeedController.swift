@@ -31,16 +31,16 @@ class FeedController: UIViewController {
         let imageView = UIImageView(image: UIImage(systemName: "line.3.horizontal.decrease.circle.fill"))
         imageView.tintColor = .mainBlue
         imageView.contentMode = .scaleAspectFit
-        imageView.setDimensions(height: 50, width: 50)
+        imageView.setDimensions(height: 44, width: 44)
         navigationItem.titleView = imageView
     }
     
     func configureLeftBarButton() {
         guard let user = user else { return }
         let profileImageView = UIImageView()
-        profileImageView.setDimensions(height: 32, width: 32)
+        profileImageView.setDimensions(height: 44, width: 44)
         profileImageView.clipsToBounds = true
-        profileImageView.layer.cornerRadius = 32 / 2
+        profileImageView.layer.cornerRadius = 44 / 2
         profileImageView.sd_setImage(with: user.profileImageUrl)
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: profileImageView)

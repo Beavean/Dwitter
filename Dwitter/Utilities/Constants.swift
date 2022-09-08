@@ -13,4 +13,5 @@ struct Constants {
     static let referenceUsers = databaseReference.child("users")
     static let storageReference = Storage.storage().reference()
     static let profileImagesStorage = storageReference.child("profile_images")
+    static let tweetsReference = databaseReference.child("tweets")
 }
