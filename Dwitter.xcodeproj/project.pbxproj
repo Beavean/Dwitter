@@ -38,6 +38,7 @@
 		08C280EB28CB5747001CD3F6 /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C280EA28CB5747001CD3F6 /* ProfileHeader.swift */; };
 		08C280ED28CB6B14001CD3F6 /* ProfileFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C280EC28CB6B14001CD3F6 /* ProfileFilterView.swift */; };
 		08C280EF28CB7A82001CD3F6 /* ProfileFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C280EE28CB7A82001CD3F6 /* ProfileFilterCell.swift */; };
+		08C280F128CB910A001CD3F6 /* ProfileHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C280F028CB910A001CD3F6 /* ProfileHeaderViewModel.swift */; };
 		342E94FC7AC0CE8784136876 /* Pods_Dwitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25C860649E9DDEEC041A4E2 /* Pods_Dwitter.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +76,7 @@
 		08C280EA28CB5747001CD3F6 /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
 		08C280EC28CB6B14001CD3F6 /* ProfileFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFilterView.swift; sourceTree = "<group>"; };
 		08C280EE28CB7A82001CD3F6 /* ProfileFilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFilterCell.swift; sourceTree = "<group>"; };
+		08C280F028CB910A001CD3F6 /* ProfileHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderViewModel.swift; sourceTree = "<group>"; };
 		4266F5BA42CAD04DF2B700A9 /* Pods-Dwitter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dwitter.release.xcconfig"; path = "Target Support Files/Pods-Dwitter/Pods-Dwitter.release.xcconfig"; sourceTree = "<group>"; };
 		AEC90B2E376B42429CF88B9F /* Pods-Dwitter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dwitter.debug.xcconfig"; path = "Target Support Files/Pods-Dwitter/Pods-Dwitter.debug.xcconfig"; sourceTree = "<group>"; };
 		B25C860649E9DDEEC041A4E2 /* Pods_Dwitter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dwitter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -169,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				08B4987A28CB480F000E1D21 /* TweetViewModel.swift */,
+				08C280F028CB910A001CD3F6 /* ProfileHeaderViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				08B70BAC28C5F20C00B01202 /* NotificationsController.swift in Sources */,
+				08C280F128CB910A001CD3F6 /* ProfileHeaderViewModel.swift in Sources */,
 				08B70BDD28C7582800B01202 /* CustomTextField.swift in Sources */,
 				08B70BAE28C5F22B00B01202 /* ConversationsController.swift in Sources */,
 				0859564E28CA354E00226AC2 /* Tweet.swift in Sources */,

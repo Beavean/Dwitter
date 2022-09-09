@@ -11,6 +11,10 @@ class ProfileHeader: UICollectionReusableView {
     
     //MARK: - Properties
     
+    var user: User? {
+        didSet { configure() }
+    }
+    
     private let filterBar = ProfileFilterView()
     
     private lazy var containerView: UIView = {
@@ -74,10 +78,33 @@ class ProfileHeader: UICollectionReusableView {
         return label
     }()
     
+    private let underlineView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .mainBlue
+        return view
+    }()
+    
+    private lazy var followingLabel: UILabel = {
+        let label = UILabel()
+        let followTap = UITapGestureRecognizer(target: self, action: #selector(handleFollowersTapped))
+        label.isUserInteractionEnabled = true
+        label.addGestureRecognizer(followTap)
+        return label
+    }()
+    
+    private lazy var followersLabel: UILabel = {
+        let label = UILabel()
+        let followTap = UITapGestureRecognizer(target: self, action: #selector(handleFollowingTapped))
+        label.isUserInteractionEnabled = true
+        label.addGestureRecognizer(followTap)
+        return label
+    }()
+    
     //MARK: - Lifecycle
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        filterBar.delegate = self
         addSubview(containerView)
         containerView.anchor(top: topAnchor, left: leftAnchor, right: rightAnchor, height: 108)
         addSubview(profileImageView)
@@ -98,8 +125,19 @@ class ProfileHeader: UICollectionReusableView {
         addSubview(userDetailsStack)
         userDetailsStack.anchor(top: profileImageView.bottomAnchor, left: leftAnchor, right: rightAnchor, paddingTop: 8, paddingLeft: 12, paddingRight: 12)
         
+        let followStack = UIStackView(arrangedSubviews: [followingLabel, followersLabel])
+        followStack.axis = .horizontal
+        followStack.distribution = .fillEqually
+        followStack.spacing = 8
+        
+        addSubview(followStack)
+        followStack.anchor(top: userDetailsStack.bottomAnchor, left: leftAnchor, paddingTop: 8, paddingLeft: 12)
+        
         addSubview(filterBar)
         filterBar.anchor(left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, height: 50)
+        
+        addSubview(underlineView)
+        underlineView.anchor(left: leftAnchor, bottom: bottomAnchor, width: frame.width / 3, height: 2)
     }
     
     required init?(coder: NSCoder) {
@@ -116,7 +154,34 @@ class ProfileHeader: UICollectionReusableView {
         
     }
     
+    @objc func handleFollowingTapped() {
+        
+    }
+    
+    @objc func handleFollowersTapped() {
+        
+    }
+    
     //MARK: - Helpers
     
-    
+    func configure() {
+        guard let user = user else { return }
+        let viewModel = ProfileHeaderViewModel(user: user)
+        editProfileFollowButton.setTitle(viewModel.actionButtonTitle, for: .normal)
+        profileImageView.sd_setImage(with: user.profileImageUrl)
+        followersLabel.attributedText = viewModel.followersString
+        followingLabel.attributedText = viewModel.followingString
+    }
+}
+
+//MARK: - ProfileFilterViewDelegate
+
+extension ProfileHeader: ProfileFilterViewDelegate {
+    func filterView(_ view: ProfileFilterView, didSelect indexPath: IndexPath) {
+        guard let cell = view.collectionView.cellForItem(at: indexPath) as? ProfileFilterCell else { return }
+        let xPosition = cell.frame.origin.x
+        UIView.animate(withDuration: 0.1, delay: 0) {
+            self.underlineView.frame.origin.x = xPosition
+        }
+    }
 }
