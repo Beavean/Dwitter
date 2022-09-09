@@ -17,6 +17,7 @@
 		08AFF1F428C9EC5400E5D3C9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AFF1F328C9EC5400E5D3C9 /* User.swift */; };
 		08AFF1F628C9F4D600E5D3C9 /* UploadDweetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AFF1F528C9F4D600E5D3C9 /* UploadDweetController.swift */; };
 		08B4987B28CB480F000E1D21 /* TweetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B4987A28CB480F000E1D21 /* TweetViewModel.swift */; };
+		08B4987D28CB4E7A000E1D21 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B4987C28CB4E7A000E1D21 /* ProfileController.swift */; };
 		08B70B8B28C5EF7E00B01202 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B70B8A28C5EF7E00B01202 /* AppDelegate.swift */; };
 		08B70B8D28C5EF7E00B01202 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B70B8C28C5EF7E00B01202 /* SceneDelegate.swift */; };
 		08B70B9228C5EF7E00B01202 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08B70B9028C5EF7E00B01202 /* Main.storyboard */; };
@@ -34,6 +35,9 @@
 		08B70BDF28C75A5700B01202 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B70BDE28C75A5700B01202 /* Utilities.swift */; };
 		08B70BE628C88B6900B01202 /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B70BE528C88B6900B01202 /* RegistrationController.swift */; };
 		08B70BE828C89FE800B01202 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 08B70BE728C89FE800B01202 /* GoogleService-Info.plist */; };
+		08C280EB28CB5747001CD3F6 /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C280EA28CB5747001CD3F6 /* ProfileHeader.swift */; };
+		08C280ED28CB6B14001CD3F6 /* ProfileFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C280EC28CB6B14001CD3F6 /* ProfileFilterView.swift */; };
+		08C280EF28CB7A82001CD3F6 /* ProfileFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C280EE28CB7A82001CD3F6 /* ProfileFilterCell.swift */; };
 		342E94FC7AC0CE8784136876 /* Pods_Dwitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25C860649E9DDEEC041A4E2 /* Pods_Dwitter.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +52,7 @@
 		08AFF1F328C9EC5400E5D3C9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		08AFF1F528C9F4D600E5D3C9 /* UploadDweetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDweetController.swift; sourceTree = "<group>"; };
 		08B4987A28CB480F000E1D21 /* TweetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetViewModel.swift; sourceTree = "<group>"; };
+		08B4987C28CB4E7A000E1D21 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		08B70B8728C5EF7E00B01202 /* Dwitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dwitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08B70B8A28C5EF7E00B01202 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		08B70B8C28C5EF7E00B01202 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +72,9 @@
 		08B70BDE28C75A5700B01202 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		08B70BE528C88B6900B01202 /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
 		08B70BE728C89FE800B01202 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		08C280EA28CB5747001CD3F6 /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
+		08C280EC28CB6B14001CD3F6 /* ProfileFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFilterView.swift; sourceTree = "<group>"; };
+		08C280EE28CB7A82001CD3F6 /* ProfileFilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFilterCell.swift; sourceTree = "<group>"; };
 		4266F5BA42CAD04DF2B700A9 /* Pods-Dwitter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dwitter.release.xcconfig"; path = "Target Support Files/Pods-Dwitter/Pods-Dwitter.release.xcconfig"; sourceTree = "<group>"; };
 		AEC90B2E376B42429CF88B9F /* Pods-Dwitter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dwitter.debug.xcconfig"; path = "Target Support Files/Pods-Dwitter/Pods-Dwitter.debug.xcconfig"; sourceTree = "<group>"; };
 		B25C860649E9DDEEC041A4E2 /* Pods_Dwitter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dwitter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -152,6 +160,7 @@
 				08B70BAB28C5F20C00B01202 /* NotificationsController.swift */,
 				08B70BAD28C5F22B00B01202 /* ConversationsController.swift */,
 				08AFF1F528C9F4D600E5D3C9 /* UploadDweetController.swift */,
+				08B4987C28CB4E7A000E1D21 /* ProfileController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -171,6 +180,9 @@
 				08B70BDC28C7582800B01202 /* CustomTextField.swift */,
 				0859564928CA2A2600226AC2 /* CaptionTextView.swift */,
 				0859564F28CA3B5800226AC2 /* TweetCell.swift */,
+				08C280EA28CB5747001CD3F6 /* ProfileHeader.swift */,
+				08C280EC28CB6B14001CD3F6 /* ProfileFilterView.swift */,
+				08C280EE28CB7A82001CD3F6 /* ProfileFilterCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -338,17 +350,21 @@
 				08AFF1F628C9F4D600E5D3C9 /* UploadDweetController.swift in Sources */,
 				08B70BAA28C5F1FC00B01202 /* ExploreController.swift in Sources */,
 				08B70B8D28C5EF7E00B01202 /* SceneDelegate.swift in Sources */,
+				08C280ED28CB6B14001CD3F6 /* ProfileFilterView.swift in Sources */,
 				0859564A28CA2A2600226AC2 /* CaptionTextView.swift in Sources */,
 				08AFF1D928C8B73800E5D3C9 /* AuthenticationService.swift in Sources */,
 				08B70BA628C5F0ED00B01202 /* MainTabController.swift in Sources */,
 				0859565028CA3B5800226AC2 /* TweetCell.swift in Sources */,
 				08B70BA828C5F1B900B01202 /* FeedController.swift in Sources */,
 				08AFF1F228C9E2FD00E5D3C9 /* UserService.swift in Sources */,
+				08C280EB28CB5747001CD3F6 /* ProfileHeader.swift in Sources */,
 				08AFF1D728C8B2BB00E5D3C9 /* Constants.swift in Sources */,
 				08B4987B28CB480F000E1D21 /* TweetViewModel.swift in Sources */,
 				08B70BDB28C757B700B01202 /* InputContainerView.swift in Sources */,
+				08C280EF28CB7A82001CD3F6 /* ProfileFilterCell.swift in Sources */,
 				08B70BE628C88B6900B01202 /* RegistrationController.swift in Sources */,
 				0859564C28CA2F6300226AC2 /* TweetService.swift in Sources */,
+				08B4987D28CB4E7A000E1D21 /* ProfileController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
