@@ -16,6 +16,7 @@
 		08AFF1F228C9E2FD00E5D3C9 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AFF1F128C9E2FD00E5D3C9 /* UserService.swift */; };
 		08AFF1F428C9EC5400E5D3C9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AFF1F328C9EC5400E5D3C9 /* User.swift */; };
 		08AFF1F628C9F4D600E5D3C9 /* UploadDweetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AFF1F528C9F4D600E5D3C9 /* UploadDweetController.swift */; };
+		08B4987B28CB480F000E1D21 /* TweetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B4987A28CB480F000E1D21 /* TweetViewModel.swift */; };
 		08B70B8B28C5EF7E00B01202 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B70B8A28C5EF7E00B01202 /* AppDelegate.swift */; };
 		08B70B8D28C5EF7E00B01202 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B70B8C28C5EF7E00B01202 /* SceneDelegate.swift */; };
 		08B70B9228C5EF7E00B01202 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08B70B9028C5EF7E00B01202 /* Main.storyboard */; };
@@ -46,6 +47,7 @@
 		08AFF1F128C9E2FD00E5D3C9 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		08AFF1F328C9EC5400E5D3C9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		08AFF1F528C9F4D600E5D3C9 /* UploadDweetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDweetController.swift; sourceTree = "<group>"; };
+		08B4987A28CB480F000E1D21 /* TweetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetViewModel.swift; sourceTree = "<group>"; };
 		08B70B8728C5EF7E00B01202 /* Dwitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dwitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08B70B8A28C5EF7E00B01202 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		08B70B8C28C5EF7E00B01202 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 		08B70BA228C5F03D00B01202 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				08B4987A28CB480F000E1D21 /* TweetViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 				08B70BA828C5F1B900B01202 /* FeedController.swift in Sources */,
 				08AFF1F228C9E2FD00E5D3C9 /* UserService.swift in Sources */,
 				08AFF1D728C8B2BB00E5D3C9 /* Constants.swift in Sources */,
+				08B4987B28CB480F000E1D21 /* TweetViewModel.swift in Sources */,
 				08B70BDB28C757B700B01202 /* InputContainerView.swift in Sources */,
 				08B70BE628C88B6900B01202 /* RegistrationController.swift in Sources */,
 				0859564C28CA2F6300226AC2 /* TweetService.swift in Sources */,

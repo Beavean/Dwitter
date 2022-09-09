@@ -12,8 +12,8 @@ struct TweetService {
     static let shared = TweetService()
     
     func uploadTweet(caption: String, completion: @escaping(Error?, DatabaseReference) -> Void) {
-        guard let userId = Auth.auth().currentUser?.uid else { return }
-        let values = ["uid": userId,
+        guard let userID = Auth.auth().currentUser?.uid else { return }
+        let values = ["uid": userID,
                       "timestamp": Int(NSDate().timeIntervalSince1970),
                       "likes": 0,
                       "retweets": 0,
@@ -25,10 +25,13 @@ struct TweetService {
         var tweets = [Tweet]()
         Constants.tweetsReference.observe(.childAdded) { snapshot in
             guard let dictionary = snapshot.value as? [String: Any] else { return }
+            guard let userID = dictionary["uid"] as? String else { return }
             let tweetID = snapshot.key
-            let tweet = Tweet(tweetID: tweetID, dictionary: dictionary)
-            tweets.append(tweet)
-            completion(tweets)
+            UserService.shared.fetchUser(userID: userID) { user in
+                let tweet = Tweet(user: user, tweetID: tweetID, dictionary: dictionary)
+                tweets.append(tweet)
+                completion(tweets)
+            }
         }
     }
 }
