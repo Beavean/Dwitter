@@ -13,6 +13,10 @@ class ProfileController: UICollectionViewController {
     
     private let user: User
     
+    private var tweets = [Tweet]() {
+        didSet { collectionView.reloadData() }
+    }
+    
     //MARK: - Lifecycle
     
     init(user: User) {
@@ -27,12 +31,21 @@ class ProfileController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCollectionView()
+        fetchTweets()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.barStyle = .black
         navigationController?.navigationBar.isHidden = true
+    }
+    
+    //MARK: - API
+    
+    func fetchTweets() {
+        TweetService.shared.fetchTweets(forUser: user) { tweets in
+            self.tweets = tweets
+        }
     }
     
     //MARK: - Helpers
@@ -49,11 +62,12 @@ class ProfileController: UICollectionViewController {
 
 extension ProfileController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        3
+        return tweets.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.tweetCellReuseIdentifier, for: indexPath) as? TweetCell else { return UICollectionViewCell() }
+        cell.tweet = tweets[indexPath.row]
         return cell
     }
 }
@@ -62,6 +76,7 @@ extension ProfileController {
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: Constants.profileHeaderReuseIdentifier, for: indexPath) as? ProfileHeader else { return UICollectionReusableView() }
         header.user = user
+        header.delegate = self
         return header
     }
 }
@@ -75,5 +90,13 @@ extension ProfileController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width, height: 120)
+    }
+}
+
+//MARK: - ProfileHeaderDelegate
+
+extension ProfileController: ProfileHeaderDelegate {
+    func handleDismissal() {
+        navigationController?.popViewController(animated: true)
     }
 }

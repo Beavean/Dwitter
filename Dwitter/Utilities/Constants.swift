@@ -14,8 +14,11 @@ struct Constants {
     static let storageReference = Storage.storage().reference()
     static let profileImagesStorage = storageReference.child("profile_images")
     static let tweetsReference = databaseReference.child("tweets")
+    static let userTweetsReference = databaseReference.child("user-tweets")
     
     static let tweetCellReuseIdentifier = "TweetCell"
     static let profileHeaderReuseIdentifier = "ProfileHeader"
     static let profileFilterCellReuseIdentifier = "ProfileFilterCell"
+    static let userCellReuseIdentifier = "UserCell"
+
 }
