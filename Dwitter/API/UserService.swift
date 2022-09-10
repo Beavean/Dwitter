@@ -8,6 +8,8 @@
 import Foundation
 import Firebase
 
+typealias DatabaseCompletion = ((Error?, DatabaseReference) -> Void)
+
 struct UserService {
     
     static let shared = UserService()
@@ -28,6 +30,38 @@ struct UserService {
             let user = User(userID: userID, dictionary: dictionary)
             users.append(user)
             completion(users)
+        }
+    }
+    
+    func followUser(userID: String, completion: @escaping(DatabaseCompletion)) {
+        guard let currentUserID = Auth.auth().currentUser?.uid else { return }
+        Constants.userFollowingReference.child(currentUserID).updateChildValues([userID: 1]) { error, reference in
+            Constants.userFollowersReference.child(userID).updateChildValues([currentUserID: 1], withCompletionBlock: completion)
+        }
+    }
+    
+    func unFollowUser(userID: String, completion: @escaping(DatabaseCompletion)) {
+        guard let currentUserID = Auth.auth().currentUser?.uid else { return }
+        Constants.userFollowingReference.child(currentUserID).child(userID).removeValue { error, reference in
+            Constants.userFollowersReference.child(userID).child(currentUserID).removeValue(completionBlock: completion)
+        }
+    }
+    
+    func checkIfUserIsFollowed(userID: String, completion: @escaping(Bool) -> Void) {
+        guard let currentUserID = Auth.auth().currentUser?.uid else { return }
+        Constants.userFollowingReference.child(currentUserID).child(userID).observeSingleEvent(of: .value) { snapshot in
+            completion(snapshot.exists())
+        }
+    }
+    
+    func fetchUserStats(userID: String, completion: @escaping(UserRelationStats) -> Void) {
+        Constants.userFollowersReference.child(userID).observeSingleEvent(of: .value) { snapshot in
+            let followers = snapshot.children.allObjects.count
+            Constants.userFollowingReference.child(userID).observeSingleEvent(of: .value) { snapshot in
+                let following = snapshot.children.allObjects.count
+                let stats = UserRelationStats(followers: followers, following: following)
+                completion(stats)
+            }
         }
     }
 }
