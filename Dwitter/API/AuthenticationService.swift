@@ -24,7 +24,7 @@ struct AuthenticationService {
         Auth.auth().signIn(withEmail: email, password: password, completion: completion)
     }
     
-    func registerUser(credentials: AuthenticationCredentials, completion: @escaping(Error?, DatabaseReference) -> Void ) {
+    func registerUser(credentials: AuthenticationCredentials, completion: @escaping(DatabaseCompletion)) {
         let email = credentials.email
         let password = credentials.password
         let fullName = credentials.fullName
@@ -45,7 +45,7 @@ struct AuthenticationService {
                                   "username": username,
                                   "fullname": fullName,
                                   "profileImageUrl": profileImageUrl]
-                    Constants.referenceUsers.child(userID).updateChildValues(values, withCompletionBlock: completion)
+                    Constants.usersReference.child(userID).updateChildValues(values, withCompletionBlock: completion)
                 }
             }
         }

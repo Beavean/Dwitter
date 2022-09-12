@@ -15,7 +15,7 @@ struct UserService {
     static let shared = UserService()
     
     func fetchUser(userID: String, completion: @escaping(User) -> Void) {
-        Constants.referenceUsers.child(userID).observeSingleEvent(of: .value) { snapshot in
+        Constants.usersReference.child(userID).observeSingleEvent(of: .value) { snapshot in
             guard let dictionary = snapshot.value as? [String: AnyObject] else { return }
             let user = User(userID: userID, dictionary: dictionary)
             completion(user)
@@ -24,7 +24,7 @@ struct UserService {
     
     func fetchUsers(completion: @escaping([User]) -> Void) {
         var users = [User]()
-        Constants.referenceUsers.observe(.childAdded) { snapshot in
+        Constants.usersReference.observe(.childAdded) { snapshot in
             let userID = snapshot.key
             guard let dictionary = snapshot.value as? [String: AnyObject] else { return }
             let user = User(userID: userID, dictionary: dictionary)
