@@ -21,6 +21,7 @@ struct Constants {
     
     static let tweetCellReuseIdentifier = "TweetCell"
     static let profileHeaderReuseIdentifier = "ProfileHeader"
+    static let tweetHeaderReuseIdentifier = "TweetHeader"
     static let profileFilterCellReuseIdentifier = "ProfileFilterCell"
     static let userCellReuseIdentifier = "UserCell"
 

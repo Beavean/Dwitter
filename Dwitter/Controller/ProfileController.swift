@@ -88,6 +88,8 @@ extension ProfileController {
     }
 }
 
+//MARK: - UICollectionViewDelegate
+
 extension ProfileController {
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: Constants.profileHeaderReuseIdentifier, for: indexPath) as? ProfileHeader else { return UICollectionReusableView() }
