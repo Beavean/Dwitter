@@ -51,6 +51,17 @@ struct TweetViewModel {
         return title
     }
     
+    var likeButtonTintColor: UIColor {
+        return tweet.didLike ? .red : .black
+    }
+    
+    var likeButtonImage: UIImage {
+        let imageName = tweet.didLike ? "heart.fill" : "heart"
+        guard let image = UIImage(systemName: imageName) else { return UIImage() }
+        return image
+    }
+    
+    
     init(tweet: Tweet) {
         self.tweet = tweet
         self.user = tweet.user
