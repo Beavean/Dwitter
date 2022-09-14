@@ -20,6 +20,7 @@ struct Constants {
     static let tweetRepliesReference = databaseReference.child("tweet-replies")
     static let userLikesReference = databaseReference.child("user-likes")
     static let tweetLikesReference = databaseReference.child("tweet-likes")
+    static let notificationsReference = databaseReference.child("notifications")
 
     static let tweetCellReuseIdentifier = "TweetCell"
     static let profileHeaderReuseIdentifier = "ProfileHeader"
