@@ -10,7 +10,7 @@ import Firebase
 struct NotificationService {
     static let shared = NotificationService()
     
-    func uploadNotification(type: NotificationType, tweet: Tweet? = nil) {
+    func uploadNotification(type: NotificationType, tweet: Tweet? = nil, user: User? = nil) {
         guard let userID = Auth.auth().currentUser?.uid else { return }
         var values: [String: Any] = ["timestamp": Int(NSDate().timeIntervalSince1970),
                                      "uid": userID,
@@ -18,8 +18,8 @@ struct NotificationService {
         if let tweet = tweet {
             values["tweetID"] = tweet.tweetID
             Constants.notificationsReference.child(tweet.user.userID).childByAutoId().updateChildValues(values)
-        } else {
-            
+        } else if let user = user {
+            Constants.notificationsReference.child(user.userID).childByAutoId().updateChildValues(values)
         }
     }
 }
