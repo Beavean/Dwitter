@@ -7,6 +7,11 @@
 
 import UIKit
 
+protocol NotificationCellDelegate: AnyObject {
+    func didTapProfileImage(_ cell: NotificationCell)
+    func didTapFollow(_ cell: NotificationCell)
+}
+
 class NotificationCell: UITableViewCell {
     
     //MARK: - Properties
@@ -14,6 +19,8 @@ class NotificationCell: UITableViewCell {
     var notification: Notification? {
         didSet { configure() }
     }
+    
+    weak var delegate: NotificationCellDelegate?
     
     private lazy var profileImageView: UIImageView = {
         let imageView = UIImageView()
@@ -26,6 +33,17 @@ class NotificationCell: UITableViewCell {
         imageView.addGestureRecognizer(tap)
         imageView.isUserInteractionEnabled = true
         return imageView
+    }()
+    
+    private lazy var followButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Loading", for: .normal)
+        button.setTitleColor(.mainBlue, for: .normal)
+        button.backgroundColor = .white
+        button.layer.borderColor = UIColor.mainBlue.cgColor
+        button.layer.borderWidth = 2
+        button.addTarget(self, action: #selector(handleFollowTapped), for: .touchUpInside)
+        return button
     }()
     
     private let notificationLabel: UILabel = {
@@ -47,6 +65,12 @@ class NotificationCell: UITableViewCell {
         addSubview(stack)
         stack.centerY(inView: self, leftAnchor: leftAnchor, paddingLeft: 12)
         stack.anchor(right: rightAnchor, paddingRight: 12)
+        
+        addSubview(followButton)
+        followButton.centerY(inView: self)
+        followButton.setDimensions(height: 32, width: 90)
+        followButton.layer.cornerRadius = 32 / 2
+        followButton.anchor(right: rightAnchor, paddingRight: 12)
     }
     
     required init?(coder: NSCoder) {
@@ -56,15 +80,23 @@ class NotificationCell: UITableViewCell {
     //MARK: - Selectors
     
     @objc func handleProfileImageTapped() {
-
+        delegate?.didTapProfileImage(self)
+    }
+    
+    @objc func handleFollowTapped() {
+        delegate?.didTapFollow(self)
+        print("follow tapped")
     }
     
     //MARK: - Helpers
     
     func configure() {
+        contentView.isUserInteractionEnabled = false
         guard let notification = notification else { return }
         let viewModel = NotificationViewModel(notification: notification)
         profileImageView.sd_setImage(with: viewModel.profileImageUrl)
         notificationLabel.attributedText = viewModel.notificationText
+        followButton.isHidden = viewModel.shouldHideFollowButton
+        followButton.setTitle(viewModel.followButtonText, for: .normal)
     }
 }
