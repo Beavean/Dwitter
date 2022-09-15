@@ -85,7 +85,6 @@ class NotificationCell: UITableViewCell {
     
     @objc func handleFollowTapped() {
         delegate?.didTapFollow(self)
-        print("follow tapped")
     }
     
     //MARK: - Helpers

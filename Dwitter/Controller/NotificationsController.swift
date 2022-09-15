@@ -105,7 +105,6 @@ extension NotificationsController {
 extension NotificationsController: NotificationCellDelegate {
     
     func didTapFollow(_ cell: NotificationCell) {
-        print("DEBUG: Handle follow tap ")
         guard let user = cell.notification?.user else { return }
         if user.isFollowed {
             UserService.shared.unFollowUser(userID: user.userID) { error, reference in
