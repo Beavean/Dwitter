@@ -50,6 +50,8 @@
 		08C280EF28CB7A82001CD3F6 /* ProfileFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C280EE28CB7A82001CD3F6 /* ProfileFilterCell.swift */; };
 		08C280F128CB910A001CD3F6 /* ProfileHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C280F028CB910A001CD3F6 /* ProfileHeaderViewModel.swift */; };
 		08C2810628CC9383001CD3F6 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C2810528CC9383001CD3F6 /* UserCell.swift */; };
+		08F7B64528D47372006B12DF /* EditProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F7B64428D47372006B12DF /* EditProfileController.swift */; };
+		08F7B64828D47D25006B12DF /* EditProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F7B64728D47D25006B12DF /* EditProfileHeader.swift */; };
 		342E94FC7AC0CE8784136876 /* Pods_Dwitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25C860649E9DDEEC041A4E2 /* Pods_Dwitter.framework */; };
 /* End PBXBuildFile section */
 
@@ -99,6 +101,8 @@
 		08C280EE28CB7A82001CD3F6 /* ProfileFilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFilterCell.swift; sourceTree = "<group>"; };
 		08C280F028CB910A001CD3F6 /* ProfileHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderViewModel.swift; sourceTree = "<group>"; };
 		08C2810528CC9383001CD3F6 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		08F7B64428D47372006B12DF /* EditProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileController.swift; sourceTree = "<group>"; };
+		08F7B64728D47D25006B12DF /* EditProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileHeader.swift; sourceTree = "<group>"; };
 		4266F5BA42CAD04DF2B700A9 /* Pods-Dwitter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dwitter.release.xcconfig"; path = "Target Support Files/Pods-Dwitter/Pods-Dwitter.release.xcconfig"; sourceTree = "<group>"; };
 		AEC90B2E376B42429CF88B9F /* Pods-Dwitter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dwitter.debug.xcconfig"; path = "Target Support Files/Pods-Dwitter/Pods-Dwitter.debug.xcconfig"; sourceTree = "<group>"; };
 		B25C860649E9DDEEC041A4E2 /* Pods_Dwitter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dwitter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -188,6 +192,7 @@
 				08AFF1F528C9F4D600E5D3C9 /* UploadTweetController.swift */,
 				08B4987C28CB4E7A000E1D21 /* ProfileController.swift */,
 				0847113428CF262B0032C4B3 /* TweetController.swift */,
+				08F7B64428D47372006B12DF /* EditProfileController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -207,13 +212,11 @@
 		08B70BA328C5F04D00B01202 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				08F7B64628D47C7F006B12DF /* Profile */,
 				08B70BDA28C757B700B01202 /* InputContainerView.swift */,
 				08B70BDC28C7582800B01202 /* CustomTextField.swift */,
 				0859564928CA2A2600226AC2 /* CaptionTextView.swift */,
 				0859564F28CA3B5800226AC2 /* TweetCell.swift */,
-				08C280EA28CB5747001CD3F6 /* ProfileHeader.swift */,
-				08C280EC28CB6B14001CD3F6 /* ProfileFilterView.swift */,
-				08C280EE28CB7A82001CD3F6 /* ProfileFilterCell.swift */,
 				08C2810528CC9383001CD3F6 /* UserCell.swift */,
 				0847113628CF28BD0032C4B3 /* TweetHeader.swift */,
 				083B558128D08356007462B6 /* ActionSheetCell.swift */,
@@ -239,6 +242,17 @@
 				08B70BE528C88B6900B01202 /* RegistrationController.swift */,
 			);
 			path = Authentication;
+			sourceTree = "<group>";
+		};
+		08F7B64628D47C7F006B12DF /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				08C280EA28CB5747001CD3F6 /* ProfileHeader.swift */,
+				08C280EC28CB6B14001CD3F6 /* ProfileFilterView.swift */,
+				08C280EE28CB7A82001CD3F6 /* ProfileFilterCell.swift */,
+				08F7B64728D47D25006B12DF /* EditProfileHeader.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		1C8B495BD56EBF944E778F32 /* Pods */ = {
@@ -375,7 +389,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				08B70BAC28C5F20C00B01202 /* NotificationsController.swift in Sources */,
+				08F7B64528D47372006B12DF /* EditProfileController.swift in Sources */,
 				08C280F128CB910A001CD3F6 /* ProfileHeaderViewModel.swift in Sources */,
+				08F7B64828D47D25006B12DF /* EditProfileHeader.swift in Sources */,
 				08436A2B28D1F3690067379A /* NotificationViewModel.swift in Sources */,
 				08B70BDD28C7582800B01202 /* CustomTextField.swift in Sources */,
 				08B70BAE28C5F22B00B01202 /* ConversationsController.swift in Sources */,
