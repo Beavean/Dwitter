@@ -19,7 +19,7 @@ class EditProfileHeader: UIView {
     
     weak var delegate: EditProfileHeaderDelegate?
     
-    private let profileImageView: UIImageView = {
+    let profileImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
