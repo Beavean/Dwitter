@@ -6,11 +6,13 @@
 //
 
 import UIKit
+import ActiveLabel
 
 protocol TweetCellDelegate: AnyObject {
     func handleProfileImageTapped(_ cell: TweetCell)
     func handleReplyTapped(_ cell: TweetCell)
     func handleLikeTapped(_ cell: TweetCell)
+    func handleFetchUser(withUsername username: String)
 }
 
 class TweetCell: UICollectionViewCell {
@@ -36,16 +38,20 @@ class TweetCell: UICollectionViewCell {
         return imageView
     }()
     
-    private let replyLabel: UILabel = {
-        let label = UILabel()
+    private let replyLabel: ActiveLabel = {
+        let label = ActiveLabel()
+        label.mentionColor = .mainBlue
+        label.hashtagColor = .mainBlue
         label.textColor = .darkGray
         label.font = UIFont.systemFont(ofSize: 12)
         label.text = "→ replying to @user"
         return label
     }()
     
-    private let captionLabel: UILabel = {
-        let label = UILabel()
+    private let captionLabel: ActiveLabel = {
+        let label = ActiveLabel()
+        label.mentionColor = .mainBlue
+        label.hashtagColor = .mainBlue
         label.text = "Some caption"
         label.font = UIFont.systemFont(ofSize: 14)
         label.numberOfLines = 0
@@ -92,7 +98,11 @@ class TweetCell: UICollectionViewCell {
         return button
     }()
     
-    private let infoLabel = UILabel()
+    private lazy var infoLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.boldSystemFont(ofSize: 14)
+        return label
+    }()
     
     //MARK: - Lifecycle
     
@@ -119,9 +129,6 @@ class TweetCell: UICollectionViewCell {
         addSubview(stack)
         stack.anchor(top: topAnchor, left: leftAnchor, right: rightAnchor, paddingTop: 4, paddingLeft: 12, paddingRight: 12)
         
-        
-        infoLabel.font = UIFont.boldSystemFont(ofSize: 14)
-        
         let actionsStack = UIStackView(arrangedSubviews: [commentButton, retweetButton, likeButton, shareButton])
         actionsStack.axis = .horizontal
         actionsStack.spacing = 72
@@ -133,6 +140,8 @@ class TweetCell: UICollectionViewCell {
         underlineView.backgroundColor = .systemGroupedBackground
         addSubview(underlineView)
         underlineView.anchor(left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, height: 1)
+        
+        configureMentionHandler()
     }
     
     required init?(coder: NSCoder) {
@@ -174,5 +183,11 @@ class TweetCell: UICollectionViewCell {
         
         replyLabel.isHidden = viewModel.shouldHideReplyLabel
         replyLabel.text = viewModel.replyText
+    }
+    
+    func configureMentionHandler() {
+        captionLabel.handleMentionTap { username in
+            self.delegate?.handleFetchUser(withUsername: username)
+        }
     }
 }

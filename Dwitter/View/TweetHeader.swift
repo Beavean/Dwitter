@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import ActiveLabel
 
 protocol TweetHeaderDelegate: AnyObject {
     func showActionSheet()
+    func handleFetchUser(withUsername username: String)
 }
 
 class TweetHeader: UICollectionReusableView {
@@ -49,8 +51,10 @@ class TweetHeader: UICollectionReusableView {
         return label
     }()
     
-    private let captionLabel: UILabel = {
-        let label = UILabel()
+    private let captionLabel: ActiveLabel = {
+        let label = ActiveLabel()
+        label.mentionColor = .mainBlue
+        label.hashtagColor = .mainBlue
         label.font = UIFont.systemFont(ofSize: 20)
         label.text = "Caption"
         label.numberOfLines = 0
@@ -74,8 +78,10 @@ class TweetHeader: UICollectionReusableView {
         return button
     }()
     
-    private let replyLabel: UILabel = {
-        let label = UILabel()
+    private let replyLabel: ActiveLabel = {
+        let label = ActiveLabel()
+        label.mentionColor = .mainBlue
+        label.hashtagColor = .mainBlue
         label.textColor = .darkGray
         label.font = UIFont.systemFont(ofSize: 12)
         label.text = "→ replying to @user"
@@ -188,6 +194,8 @@ class TweetHeader: UICollectionReusableView {
         addSubview(actionStack)
         actionStack.centerX(inView: self)
         actionStack.anchor(top: statsView.bottomAnchor, paddingTop: 16)
+        
+        configureMentionHandler()
     }
     
     required init?(coder: NSCoder) {
@@ -247,5 +255,11 @@ class TweetHeader: UICollectionReusableView {
         
         replyLabel.isHidden = viewModel.shouldHideReplyLabel
         replyLabel.text = viewModel.replyText
+    }
+    
+    func configureMentionHandler() {
+        captionLabel.handleMentionTap { username in
+            self.delegate?.handleFetchUser(withUsername: username)
+        }
     }
 }

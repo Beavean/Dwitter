@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ActiveLabel
 
 class UploadTweetController: UIViewController {
     
@@ -38,10 +39,11 @@ class UploadTweetController: UIViewController {
         return imageView
     }()
     
-    private lazy var replyLabel: UILabel = {
-        let label = UILabel()
+    private lazy var replyLabel: ActiveLabel = {
+        let label = ActiveLabel()
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = .lightGray
+        label.mentionColor = .mainBlue
         label.text = "Replying to @username"
         label.widthAnchor.constraint(equalToConstant: view.frame.width).isActive = true
         return label
@@ -64,6 +66,7 @@ class UploadTweetController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        configureMentionHandler()
     }
     
     //MARK: - Selectors
@@ -92,8 +95,8 @@ class UploadTweetController: UIViewController {
     //MARK: - Helpers
     
     func configureUI() {
-        view.backgroundColor = .white
         configureNavigationBar()
+        view.backgroundColor = .white
         
         let imageCaptionStack = UIStackView(arrangedSubviews: [profileImageView, captionTextView])
         imageCaptionStack.axis = .horizontal
@@ -128,5 +131,10 @@ class UploadTweetController: UIViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(handleCancel))
         navigationItem.leftBarButtonItem?.tintColor = .mainBlue
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: actionButton)
+    }
+    
+    func configureMentionHandler() {
+        replyLabel.handleMentionTap { mention in
+        }
     }
 }

@@ -85,4 +85,11 @@ struct UserService {
         let values = ["fullname": user.fullName, "username": user.username, "bio": user.bio ?? ""]
         Constants.usersReference.child(userID).updateChildValues(values, withCompletionBlock: completion)
     }
+    
+    func fetchUser(withUsername username: String, completion: @escaping(User) -> Void) {
+        Constants.userUsernameReference.child(username).observeSingleEvent(of: .value) { snapshot in
+            guard let userID = snapshot.value as? String else { return }
+            self.fetchUser(userID: userID, completion: completion)
+        }
+    }
 }

@@ -13,5 +13,6 @@ target 'Dwitter' do
   pod 'FirebaseDatabase'
   pod 'SDWebImage'
   pod 'JGProgressHUD'
+  pod 'ActiveLabel'
   
 end
