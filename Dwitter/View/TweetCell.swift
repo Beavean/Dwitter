@@ -59,41 +59,25 @@ class TweetCell: UICollectionViewCell {
     }()
     
     private lazy var commentButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setImage(UIImage(systemName: "bubble.left"), for: .normal)
-        button.tintColor = .darkGray
-        button.imageView?.contentMode = .scaleAspectFill
-        button.setDimensions(height: 20, width: 20)
+        let button = createButton(withImageName: "bubble.left")
         button.addTarget(self, action: #selector(handleCommentTapped), for: .touchUpInside)
         return button
     }()
     
     private lazy var retweetButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setImage(UIImage(systemName: "arrow.2.squarepath"), for: .normal)
-        button.tintColor = .darkGray
-        button.imageView?.contentMode = .scaleAspectFill
-        button.setDimensions(height: 20, width: 20)
+        let button = createButton(withImageName: "arrow.2.squarepath")
         button.addTarget(self, action: #selector(handleRetweetTapped), for: .touchUpInside)
         return button
     }()
     
     private lazy var likeButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setImage(UIImage(systemName: "heart"), for: .normal)
-        button.tintColor = .darkGray
-        button.imageView?.contentMode = .scaleAspectFill
-        button.setDimensions(height: 20, width: 20)
+        let button = createButton(withImageName: "heart")
         button.addTarget(self, action: #selector(handleLikeTapped), for: .touchUpInside)
         return button
     }()
     
     private lazy var shareButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setImage(UIImage(systemName: "square.and.arrow.up"), for: .normal)
-        button.tintColor = .darkGray
-        button.imageView?.contentMode = .scaleAspectFill
-        button.setDimensions(height: 20, width: 20)
+        let button = createButton(withImageName: "square.and.arrow.up")
         button.addTarget(self, action: #selector(handleShareTapped), for: .touchUpInside)
         return button
     }()
@@ -183,6 +167,15 @@ class TweetCell: UICollectionViewCell {
         
         replyLabel.isHidden = viewModel.shouldHideReplyLabel
         replyLabel.text = viewModel.replyText
+    }
+    
+    func createButton(withImageName imageName: String) -> UIButton {
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(systemName: imageName), for: .normal)
+        button.tintColor = .darkGray
+        button.imageView?.contentMode = .scaleAspectFill
+        button.setDimensions(height: 20, width: 20)
+        return button
     }
     
     func configureMentionHandler() {
