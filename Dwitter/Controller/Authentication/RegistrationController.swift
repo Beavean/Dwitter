@@ -93,6 +93,8 @@ class RegistrationController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        setupKeyboardHiding()
+        addKeyboardDismissal() 
     }
     
     //MARK: - Selectors
@@ -115,15 +117,22 @@ class RegistrationController: UIViewController {
               let username = usernameTextField.text?.lowercased()
         else { return }
         let credentials = AuthenticationCredentials(email: email, password: password, fullName: fullName, username: username, profileImage: profileImage)
+        showLoader(true, withText: "Signing up")
         AuthenticationService.shared.registerUser(credentials: credentials) { error, reference in
             guard let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) else { return }
             guard let tab = window.rootViewController as? MainTabController else { return }
             tab.authenticateUserAndConfigureUI()
+            self.showLoader(false)
             self.dismiss(animated: true)
         }
     }
     
     //MARK: - Helpers
+    
+    private func setupKeyboardHiding() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
     
     func configureUI() {
         view.backgroundColor = .mainBlue

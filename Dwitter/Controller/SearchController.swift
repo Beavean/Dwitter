@@ -12,9 +12,15 @@ enum SearchControllerConfiguration {
     case userSearch
 }
 
+protocol SearchControllerDelegate: AnyObject {
+    func controller(_ controller: SearchController, wantsToStartChatWith user: User)
+}
+
 class SearchController: UITableViewController {
     
     //MARK: - Properties
+    
+    weak var delegate: SearchControllerDelegate?
     
     private let config: SearchControllerConfiguration
     
@@ -74,15 +80,16 @@ class SearchController: UITableViewController {
     
     func configureUI() {
         view.backgroundColor = .white
-        navigationItem.title = "Explore"
-        
+        switch config {
+        case .messages:
+            navigationItem.title = "Search users"
+            navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(handleDismissal))
+        case .userSearch:
+            navigationItem.title = "Explore users"
+        }
         tableView.register(UserCell.self, forCellReuseIdentifier: Constants.userCellReuseIdentifier)
         tableView.rowHeight = 60
         tableView.separatorStyle = .none
-        
-        if config == .messages {
-            navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(handleDismissal))
-        }
     }
     
     func configureSearchController() {
@@ -109,7 +116,14 @@ extension SearchController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let user = inSearchMode ? filteredUsers[indexPath.row] : users[indexPath.row]
-        let controller = ProfileController(user: user)
+        let controller: UIViewController
+        switch config {
+        case .messages:
+            controller = ChatController(user: user)
+            delegate?.controller(self, wantsToStartChatWith: user)
+        case .userSearch:
+            controller = ProfileController(user: user)
+        }
         navigationController?.pushViewController(controller, animated: true)
     }
 }

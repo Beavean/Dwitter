@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import JGProgressHUD
 
 class LoginController: UIViewController {
     
@@ -64,6 +65,7 @@ class LoginController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        addKeyboardDismissal()
     }
     
     //MARK: - Selectors
@@ -74,15 +76,18 @@ class LoginController: UIViewController {
     }
     
     @objc func handleLogin() {
+        showLoader(true, withText: "Logging in")
         guard let email = emailTextField.text, let password = passwordTextField.text else { return }
         AuthenticationService.shared.logUserIn(withEmail: email, password: password) { result, error in
             if let error = error {
                 print("DEBUG: Error logging in: \(error.localizedDescription)")
+                self.showLoader(false)
                 return
             }
             guard let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) else { return }
             guard let tab = window.rootViewController as? MainTabController else { return }
             tab.authenticateUserAndConfigureUI()
+            self.showLoader(false)
             self.dismiss(animated: true)
         }
     }
