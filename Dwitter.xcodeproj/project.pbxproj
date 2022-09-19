@@ -36,7 +36,7 @@
 		08B70B9728C5EF8000B01202 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08B70B9528C5EF8000B01202 /* LaunchScreen.storyboard */; };
 		08B70BA628C5F0ED00B01202 /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B70BA528C5F0ED00B01202 /* MainTabController.swift */; };
 		08B70BA828C5F1B900B01202 /* FeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B70BA728C5F1B900B01202 /* FeedController.swift */; };
-		08B70BAA28C5F1FC00B01202 /* ExploreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B70BA928C5F1FC00B01202 /* ExploreController.swift */; };
+		08B70BAA28C5F1FC00B01202 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B70BA928C5F1FC00B01202 /* SearchController.swift */; };
 		08B70BAC28C5F20C00B01202 /* NotificationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B70BAB28C5F20C00B01202 /* NotificationsController.swift */; };
 		08B70BAE28C5F22B00B01202 /* ConversationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B70BAD28C5F22B00B01202 /* ConversationsController.swift */; };
 		08B70BD428C73FED00B01202 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B70BD328C73FED00B01202 /* Extensions.swift */; };
@@ -90,7 +90,7 @@
 		08B70B9828C5EF8000B01202 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		08B70BA528C5F0ED00B01202 /* MainTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabController.swift; sourceTree = "<group>"; };
 		08B70BA728C5F1B900B01202 /* FeedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedController.swift; sourceTree = "<group>"; };
-		08B70BA928C5F1FC00B01202 /* ExploreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreController.swift; sourceTree = "<group>"; };
+		08B70BA928C5F1FC00B01202 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		08B70BAB28C5F20C00B01202 /* NotificationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsController.swift; sourceTree = "<group>"; };
 		08B70BAD28C5F22B00B01202 /* ConversationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsController.swift; sourceTree = "<group>"; };
 		08B70BD328C73FED00B01202 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -192,7 +192,7 @@
 				08B70BD528C74CF300B01202 /* Authentication */,
 				08B70BA528C5F0ED00B01202 /* MainTabController.swift */,
 				08B70BA728C5F1B900B01202 /* FeedController.swift */,
-				08B70BA928C5F1FC00B01202 /* ExploreController.swift */,
+				08B70BA928C5F1FC00B01202 /* SearchController.swift */,
 				08B70BAB28C5F20C00B01202 /* NotificationsController.swift */,
 				08B70BAD28C5F22B00B01202 /* ConversationsController.swift */,
 				08AFF1F528C9F4D600E5D3C9 /* UploadTweetController.swift */,
@@ -415,7 +415,7 @@
 				08AFF1F428C9EC5400E5D3C9 /* User.swift in Sources */,
 				083B558228D08356007462B6 /* ActionSheetCell.swift in Sources */,
 				08AFF1F628C9F4D600E5D3C9 /* UploadTweetController.swift in Sources */,
-				08B70BAA28C5F1FC00B01202 /* ExploreController.swift in Sources */,
+				08B70BAA28C5F1FC00B01202 /* SearchController.swift in Sources */,
 				08F7B64A28D48961006B12DF /* EditProfileViewModel.swift in Sources */,
 				08B70B8D28C5EF7E00B01202 /* SceneDelegate.swift in Sources */,
 				08C280ED28CB6B14001CD3F6 /* ProfileFilterView.swift in Sources */,

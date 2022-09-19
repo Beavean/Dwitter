@@ -8,9 +8,16 @@
 import UIKit
 import Firebase
 
+enum ActionButtonConfiguration {
+    case tweet
+    case message
+}
+
 class MainTabController: UITabBarController {
 
     //MARK: - Properties
+    
+    private var buttonConfig: ActionButtonConfiguration = .tweet
     
     var user: User? {
         didSet {
@@ -63,8 +70,14 @@ class MainTabController: UITabBarController {
     //MARK: - Selectors
     
     @objc func actionButtonTapped() {
-        guard let user = user else { return }
-        let controller = UploadTweetController(user: user, config: .tweet)
+        let controller: UIViewController
+        switch buttonConfig {
+        case .message:
+            controller = SearchController(config: .messages)
+        case .tweet:
+            guard let user = user else { return }
+            controller = UploadTweetController(user: user, config: .tweet)
+        }
         let navigation = UINavigationController(rootViewController: controller)
         navigation.modalPresentationStyle = .fullScreen
         present(navigation, animated: true)
@@ -73,6 +86,7 @@ class MainTabController: UITabBarController {
     //MARK: - Helpers
     
     func configureUI() {
+        self.delegate = self
         view.addSubview(actionButton)
         actionButton.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, paddingBottom: 64, paddingRight: 16, width: 56, height: 56)
         actionButton.layer.cornerRadius = 56 / 2 
@@ -80,7 +94,7 @@ class MainTabController: UITabBarController {
     
     func configureViewControllers() {
         let feedNavigation = templateNavigationController(image: UIImage(systemName: "house"), rootViewController: FeedController(collectionViewLayout: UICollectionViewFlowLayout()))
-        let exploreNavigation = templateNavigationController(image: UIImage(systemName: "magnifyingglass"), rootViewController: ExploreController())
+        let exploreNavigation = templateNavigationController(image: UIImage(systemName: "magnifyingglass"), rootViewController: SearchController(config: .userSearch))
         let notificationsNavigation = templateNavigationController(image: UIImage(systemName: "bell"), rootViewController: NotificationsController())
         let conversationsNavigation = templateNavigationController(image: UIImage(systemName: "envelope"), rootViewController: ConversationsController())
         viewControllers = [feedNavigation, exploreNavigation, notificationsNavigation, conversationsNavigation]
@@ -91,5 +105,14 @@ class MainTabController: UITabBarController {
         navigation.tabBarItem.image = image
         navigation.navigationBar.barTintColor = .white
         return navigation
+    }
+}
+
+extension MainTabController: UITabBarControllerDelegate {
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        let index = viewControllers?.firstIndex(of: viewController)
+        let imageName = index == 3 ? "envelope" : "plus"
+        self.actionButton.setImage(UIImage(systemName: imageName), for: .normal)
+        buttonConfig = index == 3 ? .message : .tweet
     }
 }
