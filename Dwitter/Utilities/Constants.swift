@@ -32,4 +32,5 @@ struct Constants {
     static let actionSheetCellReuseIdentifier = "ActionSheetCell"
     static let notificationCellReuseIdentifier = "NotificationCell"
     static let editProfileCellReuseIdentifier = "EditProfileCell"
+    static let messageCellReuseId = "MessageCell"
 }
